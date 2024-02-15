@@ -5,9 +5,9 @@
 name: Foo
 
 on:
-  schedule:
-    # Run nightly cronjob CI every day at 14 UTC / 6AM PST / 3PM CET
-    - cron:  '*/5 * * * *'
+  # schedule:
+  #   # Run nightly cronjob CI every day at 14 UTC / 6AM PST / 3PM CET
+  #   - cron:  '*/5 * * * *'
   workflow_dispatch:
     inputs:
       channel:
