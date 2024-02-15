@@ -1,0 +1,32 @@
+# This file is part of ICU4X. For terms of use, please see the file
+# called LICENSE at the top level of the ICU4X source tree
+# (online at: https://github.com/unicode-org/icu4x/blob/main/LICENSE ).
+
+name: Foo
+
+on:
+  schedule:
+    # Run nightly cronjob CI every day at 14 UTC / 6AM PST / 3PM CET
+    - cron:  '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Channel"
+        default: 'nightly'
+        type: choice
+        options:
+        - stable
+        - beta
+        - nightly
+
+jobs:
+
+  # ci-job-check & ci-job-features
+  # Running at MSRV
+  blargh:
+    runs-on: ubuntu-latest
+    steps:
+
+    # Cargo-make boilerplate
+    - name: Print
+      run: cat "${GITHUB_EVENT_PATH}"
